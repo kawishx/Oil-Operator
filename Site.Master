@@ -1,0 +1,129 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="Oil_Operation_V1.SiteMaster" %>
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>Oil Operation System</title>
+    <link rel="stylesheet" type="text/css" href="Styles/SiteMaster.css" />
+
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f4f4;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #2e7d32;
+            padding: 10px 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            width: 50px;
+            margin-right: 10px;
+        }
+
+        .logo span {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #fff;
+        }
+
+        .menu {
+            display: flex;
+            gap: 20px;
+        }
+
+        .menu-item {
+            text-decoration: none;
+            color: #fff;
+            font-size: 1.2rem;
+            padding: 10px 15px;
+            transition: background 0.3s ease-in-out;
+        }
+
+        .menu-item:hover {
+            background-color: #1b5e20;
+            border-radius: 5px;
+        }
+
+        .logout {
+            display: flex;
+            align-items: center;
+        }
+
+        .btn-logout {
+            background-color: #d32f2f;
+            color: #fff;
+            border: none;
+            padding: 10px 15px;
+            font-size: 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .btn-logout:hover {
+            background-color: #b71c1c;
+        }
+
+        .content {
+            padding: 20px;
+        }
+
+        /* Footer styles */
+        .footer {
+            background-color: #2e7d32;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+            left: 0;
+            font-size: 1rem;
+        }
+
+        .footer span {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div class="navbar">
+            <div class="logo">
+                <img src="Images/logo.png" alt="Logo" />
+                <span>Oil Operation System</span>
+            </div>
+            <div class="menu">
+                <asp:HyperLink NavigateUrl="CreateGRN.aspx" CssClass="menu-item" runat="server">Create GRN</asp:HyperLink>
+                <asp:HyperLink NavigateUrl="Process.aspx" CssClass="menu-item" runat="server">Process</asp:HyperLink>
+                <asp:HyperLink NavigateUrl="SalesInvoice.aspx" CssClass="menu-item" runat="server">Sales Invoice</asp:HyperLink>
+            </div>
+            <div class="logout">
+                <asp:Button ID="btnLogout" runat="server" Text="Logout" CssClass="btn-logout" OnClick="btnLogout_Click" />
+            </div>
+        </div>
+
+        <div class="content">
+            <asp:ContentPlaceHolder ID="MainContent" runat="server"></asp:ContentPlaceHolder>
+        </div>
+
+        <!-- Footer Section -->
+        <div class="footer">
+            <span>© 2025 Renuka Group ICT | All rights Reserved.</span>
+        </div>
+
+    </form>
+</body>
+</html>
